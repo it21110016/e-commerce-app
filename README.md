@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+## E-Commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description:
+A web application for e-commerce functionality that includes user authentication, and a shopping cart feature. It allows users to register, log in, browse products, add them to the cart, and proceed to checkout. The app features user authentication, route protection, and an interactive UI with Lottie animations.
+Features:
 
-## Available Scripts
+    User Authentication: Users can register and log in to the application.
 
-In the project directory, you can run:
+    Protected Routes: Certain pages, like the cart, are protected and require the user to be logged in.
 
-### `npm start`
+    Lottie Animations: Interactive and smooth animations have been added using Lottie for an enhanced UI experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Toast Notifications: react-hot-toast is used for showing success and error messages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Formik for Form Validation: Form validation is managed with Formik and Yup for easier form handling and validation rules.
 
-### `npm test`
+    React Router: The application uses react-router-dom to handle navigation and routing between pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Installation
 
-### `npm run build`
+Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`cd task` 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install dependencies: You will need Node.js installed on your system to run this project. Install the required dependencies by running:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm install`
 
-### `npm run eject`
+Run the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm start`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    This will start the development server, and you can view the application by navigating to http://localhost:3000 in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Design Decisions
 
-## Learn More
+    State Management:
+        Context API is used to manage global state for authentication (AuthContext) and cart management (CartContext). This approach makes the state accessible throughout the app without prop drilling.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Routing:
+        React Router (react-router-dom) is used for navigation between pages. It allows seamless transitions between pages like login, register, products, and cart.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    User Feedback:
+        react-hot-toast is used for toasts to notify the user of success, errors, or actions like adding/removing products from the cart or completing a purchase.
 
-### Code Splitting
+    UI/UX:
+        Tailwind CSS is used to style the application. It provides utility-first CSS classes to design responsive and flexible UIs.
+        Lottie animations are used to enhance user experience, particularly in the cart page to display an empty cart animation.
+        Buttons and interactive elements are visually enhanced using Tailwind’s hover and focus classes to improve accessibility and responsiveness.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Protected Routes:
+        The app uses a custom ProtectedRoute component to ensure users cannot access the cart page without being logged in.
+        Users who are not logged in are redirected to the login page when trying to access these routes.
 
-### Analyzing the Bundle Size
+# Special Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Lottie Animations:
+    Lottie animations are used on the cart page and product page to show an animation when the cart is empty or when no product is found. This adds a fun and engaging element to the user experience.
 
-### Making a Progressive Web App
+    Form Validation with Formik & Yup:
+    Formik is used for handling forms and state management of form inputs. This simplifies complex form validation, especially for login and registration forms, with Yup schema validation for easier setup and maintenance.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    Responsive Design:
+    The app is built with responsive design in mind using Tailwind CSS. It adjusts well to different screen sizes, ensuring that the app is usable on both desktop and mobile devices.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    React Router Dom:
+    React Router is used for handling navigation and routing between pages. The app includes routes for login, registration, products, cart.
