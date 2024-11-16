@@ -1,6 +1,6 @@
-## E-Commerce App
+# E-Commerce App
 
-# Description:
+## Description:
 A web application for e-commerce functionality that includes user authentication, and a shopping cart feature. It allows users to register, log in, browse products, add them to the cart, and proceed to checkout. The app features user authentication, route protection, and an interactive UI with Lottie animations.
 Features:
 
@@ -16,11 +16,11 @@ Features:
 
     React Router: The application uses react-router-dom to handle navigation and routing between pages.
 
-# Installation
+## Installation
 
 Clone the repository
 
-`cd task` 
+`cd e-commerce-app` 
 
 Install dependencies: You will need Node.js installed on your system to run this project. Install the required dependencies by running:
 
@@ -33,7 +33,7 @@ Run the Application
     This will start the development server, and you can view the application by navigating to http://localhost:3000 in your browser.
 
 
-# Design Decisions
+## Design Decisions
 
     State Management:
         Context API is used to manage global state for authentication (AuthContext) and cart management (CartContext). This approach makes the state accessible throughout the app without prop drilling.
@@ -53,7 +53,7 @@ Run the Application
         The app uses a custom ProtectedRoute component to ensure users cannot access the cart page without being logged in.
         Users who are not logged in are redirected to the login page when trying to access these routes.
 
-# Special Features
+## Special Features
 
     Lottie Animations:
     Lottie animations are used on the cart page and product page to show an animation when the cart is empty or when no product is found. This adds a fun and engaging element to the user experience.
