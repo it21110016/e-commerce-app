@@ -1,16 +1,32 @@
 import React, { createContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
+  // const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
+    const userLoggedIn = localStorage.getItem("status");
+    if (userLoggedIn === "logged-in") {
+      setIsLoggedIn(true);
+    }
   }, []);
+
+  const register = (name, email, password) => {
+    const fakeUser = { name, email, password };
+    setUser(fakeUser);
+    localStorage.setItem("user", JSON.stringify(fakeUser));
+    
+    window.location.replace(`/login?email=${encodeURIComponent(email)}`);
+    // navigate(`/login?email=${encodeURIComponent(email)}`);
+  };
 
   const login = (email, password) => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
@@ -32,21 +48,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = (name, email, password) => {
-    const fakeUser = { name, email, password };
-    setUser(fakeUser);
-    localStorage.setItem("user", JSON.stringify(fakeUser));
-    
-    window.location.replace(`/?email=${encodeURIComponent(email)}`);
-};
-
   const logout = () => {
-    setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("status");
+    setIsLoggedIn(false);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, isLoggedIn }}>
       {children}
     </AuthContext.Provider>
   );

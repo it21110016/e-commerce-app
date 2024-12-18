@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 const CartContext = createContext();
 
@@ -50,19 +50,32 @@ export const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCart([]);
         localStorage.removeItem('cart');
-        toast.success("🎉 Thank you for your purchase! Redirecting to the shop...", {
+        toast("Thank you for your purchase! Redirecting to the shop...", {
             duration: 2000,
             position: "top-center",
+            style: {
+                border: '2px solid #10b981',
+                padding: '16px',
+                fontSize: '1.1rem',
+                color: 'white',
+                backgroundColor: '#10b981',
+              },
+              iconTheme: {
+                primary: '#10b981',
+                secondary: '#f97316',
+              },
         });
     };
 
     const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, updateQuantity, removeFromCart, cartTotal, clearCart }}>
+        <CartContext.Provider value={{ cart, addToCart, updateQuantity, removeFromCart, cartTotal, clearCart, cartCount }}>
             {children}
         </CartContext.Provider>
     );
 };
 
-export const useCart = () => useContext(CartContext);
+export default CartContext;

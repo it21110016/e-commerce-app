@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthForm from '../components/AuthForm';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -10,7 +10,7 @@ const LoginPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full mx-5">
-                <div className="hidden md:block md:w-1/2 bg-blue-500">
+                <div className="hidden md:block md:w-1/2 bg-blue-500 h-[432px]">
                     <img
                         src="/assets/images/login.jpg"
                         alt="Login"
@@ -29,12 +29,9 @@ const LoginPage = () => {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-600">
                             Don't have an account?{' '}
-                            <a
-                                href="/register"
-                                className="text-blue-500 hover:underline font-semibold"
-                            >
+                           <Link to="/register" className="text-blue-500 hover:underline font-semibold">
                                 Register here
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

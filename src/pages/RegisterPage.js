@@ -1,11 +1,12 @@
 import React from 'react';
 import AuthForm from '../components/AuthForm';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full mx-5">
-                <div className="hidden md:block md:w-1/2 bg-green-500">
+                <div className="hidden md:block md:w-1/2 bg-green-500 h-[530px]">
                     <img
                         src="/assets/images//register.jpg"
                         alt="Register"
@@ -24,12 +25,9 @@ const RegisterPage = () => {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-600">
                             Already have an account?{' '}
-                            <a
-                                href="/"
-                                className="text-blue-500 hover:underline font-semibold"
-                            >
+                            <Link to="/login" className="text-blue-500 hover:underline font-semibold">
                                 Log in here
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

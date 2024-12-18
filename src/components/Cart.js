@@ -1,28 +1,31 @@
-import React, { useState } from "react";
-import { useCart } from "../context/CartContext";
+import React, { useContext, useState } from "react";
+import CartContext from "../context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
-// import emptyCartAnimation from "/assets/animations/empty-cart.json";
 
 const Cart = () => {
-  const { cart, updateQuantity, removeFromCart, cartTotal, clearCart } =
-    useCart();
+  const { cart, updateQuantity, removeFromCart, cartTotal, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleCheckout = () => {
     setShowConfirmModal(true);
   };
 
   const confirmCheckout = () => {
-    clearCart();
     setShowConfirmModal(false);
+    setLoading(true);
     setTimeout(() => {
-      navigate("/products");
+      clearCart();
     }, 2000);
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/products");
+    }, 4000);
   };
 
   const handleIncrement = (productId) => {
@@ -38,7 +41,19 @@ const Cart = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-4xl">
+    <div className={`container mx-auto p-6 max-w-4xl ${loading ? "opacity-50" : ""}`}>
+      {/* Spinner Overlay */}
+      {loading && (
+        <div className="fixed inset-0 bg-opacity-75 flex items-center justify-center z-50 top-50 left-50">
+          <Player
+            autoplay
+            loop
+            src='/assets/animations/spinner.json'
+            style={{ height: "300px", width: "300px", margin: "0 auto" }}
+          />
+        </div>
+      )}
+
       {cart.length === 0 ? (
         <div className="text-center">
           <Player
@@ -89,7 +104,7 @@ const Cart = () => {
                     >
                       -
                     </button>
-                    <p className="text-lg font-semibold text-gray-900">
+                    <p className="text-lg font-semibold text-gray-900 w-2.5">
                       {item.quantity}
                     </p>
                     <button
@@ -100,7 +115,7 @@ const Cart = () => {
                     </button>
                   </div>
 
-                  <p className="text-lg font-semibold text-gray-900 ml-4">
+                  <p className="text-lg font-semibold text-gray-900 ml-4 w-10">
                     ${item.price * item.quantity}
                   </p>
 
