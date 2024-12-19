@@ -39,9 +39,9 @@ const Navbar = () => {
               onClick={goToCart}
               className="bg-orange-500 text-white py-3 px-3 rounded-lg flex items-center hover:bg-orange-600 transition-colors sm:py-2"
             >
-              <div className="-mr-1.5 -mb-1.5">
+              <div className="-mr-[8px] -mb-[6px] sm:-mr-[6px]">
                 < FontAwesomeIcon icon={faShoppingCart}  />
-                <span className="relative inline-block -left-2.5 -top-2.5 font-bold bg-white rounded-full text-xs text-emerald-600 w-3.5 h-3.75">{cartCount}</span>
+                <span className="relative inline-block -left-[9px] -top-[12px] font-bold bg-white rounded-full text-[9px] text-orange-600 w-[14px] h-[15px]">{cartCount}</span>
               </div>
               <span className="hidden sm:inline">View Cart</span>
             </button>
