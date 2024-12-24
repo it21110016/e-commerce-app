@@ -69,11 +69,11 @@ const Cart = () => {
       ) : (
         <div>
           {/* Cart Item List */}
-          <div className="space-y-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="space-y-6 border border-gray-500">
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-gray-200 rounded-lg bg-white"
+                className="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-gray-500 bg-white"
               >
                 {/* Product Info */}
                 <div className="flex items-center space-x-4 mb-4 sm:mb-0">

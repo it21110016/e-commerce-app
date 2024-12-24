@@ -5,7 +5,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 
 const RegisterPage = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-emerald-500 md:bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full mx-5">
                 <div className="hidden md:block md:w-1/2 bg-emerald-500 h-[530px]">
                     <Player
