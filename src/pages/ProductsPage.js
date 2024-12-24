@@ -157,9 +157,9 @@ const ProductsPage = () => {
           </div>
         </div>
 
-        <div className={`lg:col-span-3 ${loading ? "blur-sm" : ""}`}>
+        <div className="lg:col-span-3">
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ${loading ? "blur-sm" : ""}`}>
             {displayedProducts.length > 0 ? (
               displayedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
