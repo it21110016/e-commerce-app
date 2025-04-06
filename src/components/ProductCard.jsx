@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
     const { isLoggedIn } = useContext(AuthContext);
 
     return (
-        <div className="border rounded-2xl shadow-lg p-6 flex flex-col items-center transition-all transform hover:shadow-2xl">
+        <div className="border border-[#e5e7eb] rounded-2xl shadow-lg p-6 flex flex-col items-center transition-all transform hover:shadow-2xl">
             <img
                 src={product.image}
                 alt={product.name}

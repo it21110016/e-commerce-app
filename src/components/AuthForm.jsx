@@ -57,7 +57,7 @@ const AuthForm = ({ isLogin, initialEmail = '' }) => {
                                 type="text"
                                 name="name"
                                 placeholder="John Doe"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
                             <ErrorMessage
                                 name="name"
@@ -73,7 +73,7 @@ const AuthForm = ({ isLogin, initialEmail = '' }) => {
                             type="email"
                             name="email"
                             placeholder="email@example.com"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
                         <ErrorMessage
                             name="email"
@@ -89,7 +89,7 @@ const AuthForm = ({ isLogin, initialEmail = '' }) => {
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 placeholder="••••••••"
-                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             />
                             <button
                                 type="button"
